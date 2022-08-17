@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+  글쓰기
+  <script src="script.js"></script>
+
+  <form method="post" action="./write.do">
+    <table>
+      <tr>
+        <tb> 이미지 찾기 </tb>
+        <tb> <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTExMjVfODQg%2FMDAxNjM3ODI1NjQ2MzMz.zuKsXrKfyckJx7RgzDKpAIyofMli-EsEuUfAYX9TGvsg.CtVY6_KS7VQtKLDFFUVXoQixppxUMwSuryWCgpXrtS0g.JPEG.beagleb%2FIMG_2923.JPG&type=sc960_832"
+        width="100px" height="100px"> </tb>
+      </tr>
+
+      <tr>
+        <td> 제목 </td>
+        <td> <input type="text" id="Title_text" style="width: 300px; ime-mode:auto" name="title"> </td>
+      </tr>
+
+      <tr>
+        <td> 설명 </td>
+        <td> <textarea style="width: 300px; height: 300px; ime-mode:auto" id="Script_text" name="script" ></textarea> </td>
+      </tr>
+    </table>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;
+        <input id="save_btn" type="button" value="저장" style="padding: 10px 30px 10px 30px;" onclick="showAndroidToast();saveDataToAndroid()" >
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input id="list_btn" type="button" value="목록" style="padding: 10px 30px 10px 30px;" onclick="getAndroidList()">
+  </form>
+
+  <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script>
+  <script type="text/javascript">
+    function getAndroidList() {
+      YSH.getList();
+    }
+
+    function showAndroidToast() {
+      YSH.showToast();
+    }
+
+
+
+
+    function saveDataToAndroid() {
+
+      var newImgUrl = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTExMjVfODQg%2FMDAxNjM3ODI1NjQ2MzMz.zuKsXrKfyckJx7RgzDKpAIyofMli-EsEuUfAYX9TGvsg.CtVY6_KS7VQtKLDFFUVXoQixppxUMwSuryWCgpXrtS0g.JPEG.beagleb%2FIMG_2923.JPG&type=sc960_832";
+      var newTitle = document.getElementById('Title_text').value;
+      var newScript = document.getElementById('Script_text').value;
+
+      YSH.saveData(newImgUrl, newTitle, newScript);
+    }
+
+  </script>
+
+
+
+
+</body>
+
+</html>
